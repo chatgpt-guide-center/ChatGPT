@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ChatGPT 5.2 使用指南 - 2026 特别版</title>
+    <meta name="description" content="2026年最新指南：GPT 5.2 已正式上线，国内直连 ChatGPT 官网及中文版使用教程。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 强制使用 Apple 系统字体栈 */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: #F5F5F7; /* Apple 背景灰 */
+            color: #1D1D1F; /* Apple 标题黑 */
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 隐藏滚动条但保留功能 */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* 仿 iOS 弹性滚动容器 */
+        .ios-card {
+            background: white;
+            border-radius: 24px; /* iOS 风格大圆角 */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+        }
+        
+        .ios-card:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.01);
+            transform: translateY(-2px);
+        }
+
+        /* 按钮点击缩放效果 */
+        .btn-press:active {
+            transform: scale(0.96);
+        }
+
+        /* 渐变文字 */
+        .text-gradient {
+            background: linear-gradient(135deg, #007AFF 0%, #00C7BE 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* 导航栏毛玻璃 */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        /* 详情展开动画 */
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        details[open] summary ~ * {
+            animation: sweep .3s ease-in-out;
+        }
+        @keyframes sweep {
+            0%    {opacity: 0; transform: translateY(-10px)}
+            100%  {opacity: 1; transform: translateY(0)}
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 inset-x-0 h-[48px] md:h-[56px] glass-nav z-50 flex items-center justify-between px-4 md:px-8 transition-all duration-300">
+        <div class="flex items-center gap-2">
+            <div class="w-5 h-5 bg-black rounded-md flex items-center justify-center">
+                 <svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <span class="font-medium text-sm md:text-base tracking-tight text-[#1D1D1F]">GPT Guide <span class="text-xs text-[#86868B] ml-1 font-normal">2026</span></span>
+        </div>
+        
+        <div class="hidden md:flex items-center space-x-8 text-xs font-medium text-[#424245]">
+            <a href="#hero" class="hover:text-black transition-colors">概览</a>
+            <a href="#access" class="hover:text-black transition-colors">镜像入口</a>
+            <a href="#compare" class="hover:text-black transition-colors">参数对比</a>
+            <a href="#guide" class="hover:text-black transition-colors">教程</a>
+        </div>
+
+        <a href="#access" class="hidden md:inline-flex bg-[#0071e3] text-white text-xs px-3 py-1.5 rounded-full font-medium hover:bg-[#0077ED] transition-colors btn-press">
+            立即使用
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="pt-32 pb-16 md:pt-40 md:pb-24 px-6 text-center max-w-[980px] mx-auto">
+        <div class="inline-block mb-6 md:mb-8">
+            <span class="text-[#F56300] text-xs md:text-sm font-semibold tracking-wide uppercase">New Release</span>
+            <div class="mt-1 text-xs text-[#86868B]">发布于 2026年1月6日</div>
+        </div>
+
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.1] mb-6 text-[#1D1D1F]">
+            GPT 5.2 <br class="md:hidden" />
+            <span class="text-gradient">已就位。</span>
+        </h1>
+        
+        <p class="text-lg md:text-2xl font-normal leading-relaxed text-[#1D1D1F] max-w-2xl mx-auto mb-10">
+            更聪明，更快速，更懂中文。<br />
+            这是你从未见过的智能体验，现在触手可及。
+        </p>
+
+        <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
+            <a href="#access" class="btn-press bg-[#0071e3] text-white rounded-full px-8 py-3.5 text-base md:text-lg font-medium min-w-[160px] hover:bg-[#0077ED] transition-all shadow-lg shadow-blue-500/20">
+                国内直连使用
+            </a>
+            <a href="#guide" class="btn-press text-[#0071e3] hover:underline text-base md:text-lg font-medium flex items-center gap-1 group">
+                查看注册指南 <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+
+        <!-- 模拟官网 Hero 图片 -->
+        <div class="mt-16 md:mt-24 rounded-[32px] overflow-hidden shadow-2xl bg-white border border-gray-100 max-w-5xl mx-auto">
+             <div class="relative aspect-[16/9] bg-gradient-to-b from-gray-50 to-white flex items-center justify-center overflow-hidden">
+                 <!-- 模拟一个极简的 AI 对话界面 UI -->
+                 <div class="absolute inset-0 flex flex-col items-center justify-center space-y-4 opacity-100">
+                    <div class="w-2/3 h-4 bg-gray-100 rounded-full animate-pulse mx-auto"></div>
+                    <div class="w-1/2 h-4 bg-gray-100 rounded-full animate-pulse mx-auto"></div>
+                    <div class="w-3/4 h-24 bg-blue-50/50 rounded-2xl border border-blue-100/50 backdrop-blur m-4 flex items-center justify-center text-blue-500 font-medium">
+                        Hello, I'm GPT-5.2
+                    </div>
+                 </div>
+                 <img src="https://imgtolinkx.com/i/e8MWRiI7" class="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-90" alt="Interface">
+             </div>
+        </div>
+    </section>
+
+    <!-- 镜像入口 Bento Grid -->
+    <section id="access" class="py-20 md:py-32 bg-white">
+        <div class="max-w-[980px] mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl font-semibold mb-4 text-center text-[#1D1D1F]">国内直连</h2>
+            <p class="text-center text-[#86868B] text-lg mb-16 max-w-xl mx-auto">
+                无需复杂配置。选一个，直接开始。
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-fr">
+                <!-- 主要推荐卡片 - 占据大空间 -->
+                <a href="https://aihuoya.com" target="_blank" class="md:col-span-2 ios-card p-8 md:p-10 flex flex-col justify-between group relative overflow-hidden bg-[#F5F5F7] hover:bg-[#F0F0F2] transition-colors">
+                    <div class="relative z-10">
+                        <span class="inline-block px-3 py-1 bg-black text-white text-[10px] font-bold rounded-full mb-4 uppercase tracking-wider">Editor's Choice</span>
+                        <h3 class="text-2xl md:text-3xl font-semibold mb-3 text-[#1D1D1F]">ChatGPT 中文版</h3>
+                        <p class="text-[#86868B] max-w-md">响应极快，内置丰富的角色预设。无论是代码编写还是周报生成，它是最稳健的选择。</p>
+                    </div>
+                    <div class="mt-8 flex items-center text-[#0071e3] font-medium group-hover:underline">
+                        立即访问 <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </div>
+                    <!-- 装饰图标 -->
+                    <div class="absolute right-[-20px] bottom-[-20px] w-40 h-40 bg-blue-500 rounded-full blur-[60px] opacity-20 group-hover:opacity-30 transition-opacity"></div>
+                </a>
+
+                <!-- 极简版 -->
+                <a href="https://xsimplechat.com" target="_blank" class="ios-card p-8 flex flex-col justify-between group bg-white border border-gray-100">
+                    <div>
+                        <div class="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center mb-4">
+                            <span class="text-xl">⚡️</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-[#1D1D1F]">轻量镜像站</h3>
+                        <p class="text-sm text-[#86868B]">如果您只想要一个纯粹的对话框，选这个。</p>
+                    </div>
+                    <div class="mt-6 flex justify-end">
+                        <div class="w-8 h-8 rounded-full bg-[#E8E8ED] flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 聚合版 -->
+                <a href="https://gptokk.com" target="_blank" class="ios-card p-8 flex flex-col justify-between group bg-white border border-gray-100">
+                     <div>
+                        <div class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center mb-4">
+                            <span class="text-xl">📦</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-[#1D1D1F]">模型聚合站</h3>
+                        <p class="text-sm text-[#86868B]">Claude 3.5 + GPT-4o。多模型对比首选。</p>
+                    </div>
+                    <div class="mt-6 flex justify-end">
+                        <div class="w-8 h-8 rounded-full bg-[#E8E8ED] flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 备用推荐 -->
+                <a href="https://chat.aihuoya.com" target="_blank" class="md:col-span-2 ios-card p-8 md:p-10 flex flex-col md:flex-row md:items-center justify-between group relative overflow-hidden bg-gradient-to-br from-[#1D1D1F] to-[#424245] text-white">
+                    <div class="relative z-10 max-w-md">
+                        <h3 class="text-2xl font-semibold mb-2">GPT 中文全能站</h3>
+                        <p class="text-gray-400 text-sm">支持联网搜索 (Browsing) 和绘图功能，全功能体验版本。</p>
+                    </div>
+                    <div class="mt-6 md:mt-0 flex items-center bg-white/10 backdrop-blur-md px-5 py-2.5 rounded-full text-sm font-medium hover:bg-white hover:text-black transition-all">
+                        Launch App
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特性对比 Section - 类似 iPhone 参数对比 -->
+    <section id="compare" class="py-20 bg-[#F5F5F7]">
+        <div class="max-w-[800px] mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl font-semibold mb-12 text-center text-[#1D1D1F]">哪一款适合你？</h2>
+            
+            <div class="grid grid-cols-2 gap-x-8 gap-y-12">
+                <!-- Column Header -->
+                <div class="text-center pb-6 border-b border-[#E5E5EA]">
+                    <div class="text-xl font-semibold text-[#86868B] mb-2">GPT-4o</div>
+                    <div class="text-sm text-[#86868B]">可靠的助手</div>
+                </div>
+                <div class="text-center pb-6 border-b border-[#E5E5EA]">
+                    <div class="text-xl font-semibold text-[#1D1D1F] mb-2">GPT-5.2</div>
+                    <div class="text-sm text-[#F56300]">Ultimate experience</div>
+                </div>
+
+                <!-- Row 1: 推理 -->
+                <div class="text-center px-2">
+                    <div class="text-2xl font-semibold mb-1">优秀</div>
+                    <div class="text-xs text-[#86868B]">推理逻辑能力</div>
+                </div>
+                <div class="text-center px-2">
+                    <div class="text-2xl font-semibold mb-1">卓越</div>
+                    <div class="text-xs text-[#86868B]">支持超长逻辑链</div>
+                </div>
+
+                <!-- Row 2: 记忆 -->
+                <div class="text-center px-2">
+                    <div class="text-2xl font-semibold mb-1">128k</div>
+                    <div class="text-xs text-[#86868B]">上下文窗口</div>
+                </div>
+                <div class="text-center px-2">
+                    <div class="text-2xl font-semibold mb-1">200k</div>
+                    <div class="text-xs text-[#86868B]">能读懂一整本书</div>
+                </div>
+
+                <!-- Row 3: 功能 -->
+                <div class="text-center px-2">
+                    <div class="flex justify-center mb-1">
+                         <span class="w-8 h-8 bg-[#E5E5EA] rounded-full flex items-center justify-center text-sm">🎤</span>
+                    </div>
+                    <div class="text-xs text-[#86868B]">听 / 说 / 看</div>
+                </div>
+                <div class="text-center px-2">
+                    <div class="flex justify-center mb-1">
+                         <span class="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center text-sm">👁️</span>
+                    </div>
+                    <div class="text-xs text-[#86868B]">实时视频流交互</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 注册教程 & FAQ -->
+    <section id="guide" class="py-20 md:py-32 bg-white">
+        <div class="max-w-[700px] mx-auto px-6">
+            <h2 class="text-3xl font-semibold mb-10 text-[#1D1D1F]">官网注册指南</h2>
+            
+            <!-- iOS Settings List Style -->
+            <div class="bg-[#F5F5F7] rounded-3xl overflow-hidden p-1 mb-12">
+                <div class="bg-white rounded-[20px] divide-y divide-[#E5E5EA] pl-5">
+                    <div class="py-5 pr-5 flex gap-4">
+                        <div class="w-7 h-7 bg-blue-100 text-[#0071e3] rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">1</div>
+                        <div>
+                            <h4 class="font-semibold text-sm text-[#1D1D1F] mb-1">网络环境准备</h4>
+                            <p class="text-sm text-[#86868B] leading-relaxed">必须使用美、日、新等地区的原生 IP。避免使用数据中心 IP。</p>
+                        </div>
+                    </div>
+                    <div class="py-5 pr-5 flex gap-4">
+                        <div class="w-7 h-7 bg-blue-100 text-[#0071e3] rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">2</div>
+                        <div>
+                            <h4 class="font-semibold text-sm text-[#1D1D1F] mb-1">海外手机号验证</h4>
+                            <p class="text-sm text-[#86868B] leading-relaxed">需要接收短信验证码。推荐使用 sms-activate 等接码平台。</p>
+                        </div>
+                    </div>
+                    <div class="py-5 pr-5 flex gap-4">
+                        <div class="w-7 h-7 bg-blue-100 text-[#0071e3] rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">3</div>
+                        <div>
+                            <h4 class="font-semibold text-sm text-[#1D1D1F] mb-1">Plus 订阅支付</h4>
+                            <p class="text-sm text-[#86868B] leading-relaxed">需要虚拟信用卡（Depay/WildCard）或美区 Apple ID 礼品卡。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-6 text-[#1D1D1F]">常见问题</h3>
+            <div class="space-y-4">
+                <details class="group bg-[#F5F5F7] rounded-2xl p-5 hover:bg-[#EBEBEF] transition-colors cursor-pointer">
+                    <summary class="flex justify-between items-center font-medium text-[#1D1D1F]">
+                        官网显示 Access Denied 怎么办？
+                        <span class="text-[#86868B] group-open:rotate-180 transition-transform">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </span>
+                    </summary>
+                    <div class="mt-3 text-sm text-[#86868B] leading-relaxed">
+                        这是 IP 封锁。请更换更干净的节点，或开启无痕模式。如果依然困难，直接使用顶部的国内镜像站是最简单的解决方案。
+                    </div>
+                </details>
+                
+                <details class="group bg-[#F5F5F7] rounded-2xl p-5 hover:bg-[#EBEBEF] transition-colors cursor-pointer">
+                    <summary class="flex justify-between items-center font-medium text-[#1D1D1F]">
+                        镜像站数据安全吗？
+                        <span class="text-[#86868B] group-open:rotate-180 transition-transform">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </span>
+                    </summary>
+                    <div class="mt-3 text-sm text-[#86868B] leading-relaxed">
+                        推荐的镜像站均采用 HTTPS 加密，且通过 API 直接连接 OpenAI。对话数据不会被第三方存储。但请勿在任何 AI 中输入银行卡密码等极端敏感信息。
+                    </div>
+                </details>
+
+                 <details class="group bg-[#F5F5F7] rounded-2xl p-5 hover:bg-[#EBEBEF] transition-colors cursor-pointer">
+                    <summary class="flex justify-between items-center font-medium text-[#1D1D1F]">
+                        GPT-5.2 对比 GPT-4o 提升大吗？
+                        <span class="text-[#86868B] group-open:rotate-180 transition-transform">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </span>
+                    </summary>
+                    <div class="mt-3 text-sm text-[#86868B] leading-relaxed">
+                        对于逻辑推理、复杂代码编写和非英语环境（如中文），提升非常显著。日常闲聊区别不大。
+                    </div>
+                </details>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#F5F5F7] py-12 border-t border-[#D2D2D7]">
+        <div class="max-w-[980px] mx-auto px-6 text-[11px] text-[#86868B]">
+            <div class="mb-4 space-y-2">
+                <p>1. 数据基于 2026 年 1 月 OpenAI 官方发布说明。</p>
+                <p>2. 推荐的镜像服务由第三方提供，本站仅作收录整理。</p>
+            </div>
+            
+            <div class="h-px bg-[#D2D2D7] my-6"></div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>Copyright © 2026 ChatGPT Guide CN. 保留所有权利。</div>
+                <div class="flex gap-4 text-[#424245]">
+                    <a href="#" class="hover:underline">隐私政策</a>
+                    <span class="text-[#D2D2D7]">|</span>
+                    <a href="#" class="hover:underline">免责声明</a>
+                    <span class="text-[#D2D2D7]">|</span>
+                    <a href="#" class="hover:underline">联系我们</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
